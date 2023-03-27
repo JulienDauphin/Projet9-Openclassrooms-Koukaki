@@ -1,5 +1,5 @@
 /*
- Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme Name:  Thème enfant - Fleurs d'orangers et chats errants - Oscars Short
  Theme URI: https://www.koukaki.local
  Author: Studio Koukaki
  Author URI: https://www.koukaki.local
@@ -7,3 +7,65 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
+
+/* Rotation des fleurs */
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.site-footer::after, .site-footer ul::after, .site-footer::before, .story__article::after, #studio h2::before, #studio h2::after, .story h2::after, .fleur {
+    animation: rotate 20s normal linear infinite;
+}
+
+.story h2::after {
+    transform-origin: 77px 77px;
+}
+
+
+/* ********** Rendre les sections invisibles avant le fade-in ********** */
+section, footer{
+    opacity: 0;
+}
+main section:not(:first-child) {
+    top: 5%;
+}
+main section:first-child {
+    top: -2%;
+}
+
+/* Animation des h2 et h3 */
+.mouvementTitre {
+    opacity: 1;
+    transition: 2000ms  ease-in;
+}
+
+/* ********** Mise en page de la section nominations ********** */
+#nominations {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 283px;
+    margin-top: 10%;
+    margin-bottom: -25%;
+    position: relative;
+    z-index: -1;
+}
+#nominations h2 {
+    font-size: 2.625rem;
+    background-image: url("http://localhost/Koukaki_final/wp-content/uploads/2023/03/orange_nominations_bg.png");
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: left;
+    margin-bottom: 10px;
+}
+#nominations img {
+    margin-left: -45%;
+    padding-top: 15%;
+}
+.site-footer ul {
+    margin-top: 25%;
+}
+h2, h3 {
+    opacity: 0;
+}
