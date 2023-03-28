@@ -102,3 +102,33 @@ h2, h3 {
 		transform: translate(0px, -15px);
 	
 } }
+
+/* Swiper */
+
+.swiper {
+    width: 160%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 6em;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+.slide-1 figcaption {
+    padding-top: 40px;
+}
+#titrePersonnages {
+    background-image: url("../foce/assets/images/orange_characters_bg.png");
+    margin-right: 40%;
+}

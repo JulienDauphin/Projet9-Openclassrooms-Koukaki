@@ -59,4 +59,22 @@
 
   });
 
+
+  /* Swiper */
+  var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    centeredSlides: true,
+    slidesPerView: 5,
+    grabCursor: true,
+    //mousewheel: true,
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 60,
+        modifier: 1,
+        slideShadows: false,
+    }
+});
+
+
 })( jQuery );
