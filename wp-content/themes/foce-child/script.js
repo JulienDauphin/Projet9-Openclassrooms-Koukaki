@@ -1,31 +1,62 @@
-'use strict';
+(function( $ ) {
+  'use strict';
 
-const banner = document.querySelector('.banner');
-const sections = document.querySelectorAll('section, footer');
-const titles = document.querySelectorAll('h2, h3');
-const transitionTime = 1000; // temps de transition en millisecondes
+  /* Constante(s) de durée */
+  const transitionTime = 1500;
 
-// Apparition de la première section dès chargement de la page
-banner.style.top = '0';
-banner.style.opacity = '1';
+  /* Apparition de la bannière au chargement du site */
+  $(".banner").animate({
+      'top': '0',
+      'opacity':'1'
+  }, transitionTime);
 
-// Gestion des évènements au scroll
-window.addEventListener('scroll', () => {
-  const scrolledFromTop = window.scrollY + window.innerHeight;
-
-  // Apparition des sections et des titres au scroll
-  sections.forEach(section => {
-    const distanceFromTop = section.offsetTop;
-    if (scrolledFromTop >= distanceFromTop) {
-      section.style.top = '0';
-      section.style.opacity = '1';
-    }
+  /* Position du titre */
+  var imageOrigine = $(".site-header").height() + ($(".banner").height() / 5);
+  $(".banner-img").css({
+      'top': imageOrigine
   });
 
-  titles.forEach(title => {
-    const distanceFromTop = title.offsetTop;
-    if (scrolledFromTop >= distanceFromTop) {
-      title.classList.add('mouvementTitre');
-    }
+  /* Scroll */
+
+  $(window).scroll(function() {
+
+      // Calcule de la position de l'utilisateur
+      var scrolledFromTop = $(window).scrollTop() + $(window).height();
+
+
+      /* Parralax titre */
+      var imageBot = imageOrigine + $('.banner-img').height() - $(".site-header").height();
+      var videoVisible = $(".banner").height() - $(window).scrollTop() + $(".site-header").height();
+      if (imageBot >= videoVisible - 22) {
+          $(".banner-img").css({
+              'bottom': $(".banner").height() - $(window).scrollTop()
+          });
+      }
+      else {
+          $(".banner-img").css({
+              'top': imageOrigine + $(window).scrollTop()
+          });
+      }
+
+
+      /* Apparition des sections */
+      $("section, footer").each(function() {
+          var distanceFromTop = $(this).offset().top;
+          if (scrolledFromTop >= distanceFromTop) {
+              $(this).animate({
+                 'top': '0',
+                 'opacity':'1'
+              }, transitionTime);
+          }
+      });
+      $("h2, h3").each(function() {
+          var distanceFromTop = $(this).offset().top;
+          if (scrolledFromTop >= distanceFromTop) {
+              $(this).addClass('mouvementTitre');
+              
+          }
+      });
+
   });
-});
+
+})( jQuery );

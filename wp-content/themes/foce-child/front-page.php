@@ -6,6 +6,11 @@ get_header();
     <main id="primary" class="site-main">
         <section class="banner">
             <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+            <video class="banner-video" autoplay muted loop
+                poster="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+                <source src="http://localhost/koukaki_final/wp-content/uploads/2023/03/VideoHeader.mp4" type="video/mp4"> 
+            </video>
+
         </section>
         <section id="#story" class="story">
             <h2>L'histoire</h2>

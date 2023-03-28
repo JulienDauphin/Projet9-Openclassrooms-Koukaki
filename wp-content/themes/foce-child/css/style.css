@@ -1,10 +1,1 @@
-/* Rotation des fleurs */
-@keyframes rotate {
-    100% {
-        transform: rotate(1turn);
-    }
-}
 
-.site-footer::after, .site-footer ul::after, .site-footer::before, .story__article::after, #studio h2::before, #studio h2::after, .story h2::after, .fleur {
-    animation: rotate 20s normal linear infinite;
-}
