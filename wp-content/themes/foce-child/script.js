@@ -3,6 +3,8 @@
 
   /* Constante(s) de durée */
   const transitionTime = 1500;
+  const nuageGrandLeft = 1000;
+  const nuagePetitLeft = 800;
 
   /* Apparition de la bannière au chargement du site */
   $(".banner").animate({
@@ -15,6 +17,17 @@
   $(".banner-img").css({
       'top': imageOrigine
   });
+
+/* Nuages */
+$(".nuage-grand").css({
+    'top': 1420,
+    'left': nuageGrandLeft,
+});
+$(".nuage-petit").css({
+    'top': 1603,
+    'left': nuagePetitLeft
+});
+
 
   /* Scroll */
 
@@ -53,9 +66,30 @@
           var distanceFromTop = $(this).offset().top;
           if (scrolledFromTop >= distanceFromTop) {
               $(this).addClass('mouvementTitre');
-              
           }
       });
+
+/* Déplacements */
+
+deplacementNuage($(".nuage-grand"), nuageGrandLeft, 3);
+deplacementNuage($(".nuage-petit"), nuagePetitLeft, 3);
+
+function deplacementNuage(nuage, nuageLeft, vitesse) {
+    var nuageMAX = nuageLeft - 300; // changer le signe pour inverser la direction
+    var distanceNuage;
+    if (scrolledFromTop > nuage.offset().top /* + (nuage.height()/2) */) {
+        distanceNuage = nuageLeft - ((scrolledFromTop - nuage.offset().top) / vitesse); // inverser la soustraction pour inverser la direction
+        if (distanceNuage >= nuageMAX && distanceNuage < nuageLeft) { // inverser les signes pour inverser la direction
+            nuage.css({
+                'left': distanceNuage
+            });
+        }
+    }
+}
+
+
+
+
 
   });
 
@@ -66,7 +100,6 @@
     centeredSlides: true,
     slidesPerView: 5,
     grabCursor: true,
-    //mousewheel: true,
     coverflowEffect: {
         rotate: 0,
         stretch: 0,
@@ -75,6 +108,9 @@
         slideShadows: false,
     }
 });
+
+
+
 
 
 })( jQuery );

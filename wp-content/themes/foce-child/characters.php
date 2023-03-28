@@ -8,8 +8,8 @@
     $characters_query = new WP_Query($args);
 ?>
             
-<article id="characters" class="swiper mySwiper">    
-    <h3 id="titrePersonnages">Les personnages</h3>
+<section id="characters" class="swiper mySwiper">    
+    <h3 id="titrePersonnages"><span class="anim-text">Les</span> <span class="anim-text">personnages</span></h3>
     <div class="swiper-wrapper">
         <?php
             $i = 1;
@@ -25,4 +25,4 @@
             }
         ?>
     </div>
-</article>
+        </section>

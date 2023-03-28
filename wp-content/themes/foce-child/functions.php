@@ -5,6 +5,11 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css' );
 }
 
+function css_enfant() {
+	wp_enqueue_style( 'enfant-style', 'http://localhost/koukaki_final/wp-content/themes/foce-child/css/style.css');}
+    add_action( 'wp_enqueue_scripts', 'css_enfant' );
+
+
 function theme_scripts() {    
     wp_enqueue_script(
         'swiper', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array('jquery'));
